@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
+  :root {
+    --background: 200 30% 98%;
+    --foreground: 210 60% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 60% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 60% 15%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 210 60% 15%;
+
+    --muted: 210 30% 94%;
+    --muted-foreground: 210 30% 45%;
+
+    --accent: 45 100% 65%;
+    --accent-foreground: 210 60% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 210 100% 50%;
+
+    /* Weather specific colors */
+    --weather-primary: 210 100% 50%;
+    --weather-secondary: 45 100% 65%;
+    --weather-card: 0 0% 100%;
+    --weather-card-border: 210 30% 85%;
+    --weather-text: 210 60% 15%;
+    --weather-text-muted: 210 30% 45%;
+    --weather-bg-from: 200 50% 85%;
+    --weather-bg-to: 210 60% 92%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 210 40% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 40% 95%;
+
+    --primary: 210 90% 60%;
+    --primary-foreground: 220 30% 8%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 210 20% 65%;
+
+    --accent: 45 90% 55%;
+    --accent-foreground: 220 30% 8%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 40% 95%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 210 90% 60%;
+
+    /* Weather specific colors for dark mode */
+    --weather-primary: 210 90% 60%;
+    --weather-secondary: 45 90% 55%;
+    --weather-card: 220 25% 12%;
+    --weather-card-border: 220 20% 25%;
+    --weather-text: 210 40% 95%;
+    --weather-text-muted: 210 20% 65%;
+    --weather-bg-from: 220 40% 15%;
+    --weather-bg-to: 220 30% 20%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .weather-card-glass {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  }
+
+  .weather-gradient {
+    background: linear-gradient(135deg, hsl(var(--weather-bg-from)) 0%, hsl(var(--weather-bg-to)) 100%);
+  }
+}
